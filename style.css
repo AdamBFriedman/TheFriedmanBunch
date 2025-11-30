@@ -1,0 +1,114 @@
+@keyframes enter_title {
+    to {
+      transform: scale(2.7);
+    }
+  }
+  
+  @keyframes enter_title_small {
+    to {
+      transform: translate(-50%, -50%) scale(1); 
+    }
+  }
+  
+  body, html {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: black;  
+    display: flex;
+    align-items: center;
+    height: 100vh;  
+  }
+  
+  .grid {
+    display: grid;
+    margin: 0 auto;
+    width: 700px;
+    grid-gap: 10px;
+    grid-template-areas: "adam1 adam2 adam3"
+                         "adam4 title adam6"
+                         "adam7 adam8 adam9";
+  }
+  
+  .grid > * {
+    background: white;
+  }
+  
+  .adam1 {
+    grid-area: adam1;
+  }
+  
+  .adam2 {
+    grid-area: adam2;
+  }
+  
+  .adam3 {
+    grid-area: adam3;
+  }
+  
+  .adam4 {
+    grid-area: adam4;
+  }
+  
+  .adam6 {
+    grid-area: adam6;
+  }
+  
+  .adam7 {
+    grid-area: adam7;
+  }
+  
+  .adam8 {
+    grid-area: adam8;
+  }
+  
+  .adam9 {
+    grid-area: adam9;
+  }
+  
+  .title {
+    grid-area: title;
+    background: transparent;
+    position: relative;
+  }
+  
+  .title img {
+    position: absolute;
+    width: 165px;
+    height: 138px;
+    transform: scale(0);
+    right: 30px;
+    top: 20px;
+    animation: enter_title 3s forwards 1s;
+  }
+  
+  img {
+    display: block;
+    width: 100%;
+    max-width: 100%;  
+    height: 100%; 
+  }
+  
+  @media screen and (max-width: 36.5em) {
+    body {
+      display: block;
+    }
+    
+    .grid {
+      grid-template-areas: "title title"
+                           "adam1 adam2"
+                           "adam3 adam4"
+                           "adam6 adam7"
+                           "adam8 adam9";                        
+    }
+    
+    .title img {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      animation: enter_title_small 3s forwards 1s;
+    }
+  }
